@@ -5,6 +5,7 @@ RUN mkdir /app
 WORKDIR /app
 
 COPY . .
+WORKDIR /app
 RUN pip install -r requirments.txt
 
 EXPOSE 8080
