@@ -4,7 +4,7 @@ FROM python:3.6-slim
 RUN mkdir /app
 WORKDIR /app
 
-COPY ..
+COPY . .
 RUN pip install -r requirments.txt
 
 ENV PYTHONUNBUFFERED 1
