@@ -3,11 +3,11 @@ FROM ubuntu:16.04
 RUN apt-get update -y && \
     apt-get install -y python-pip python-dev
 
-COPY ./requirments.txt /app/requirements.txt
+COPY ./requirments.txt /app/requirments.txt
 
 WORKDIR /app
 
-RUN pip install -r requirements.txt
+RUN pip install -r requirments.txt
 
 COPY . /app
 
