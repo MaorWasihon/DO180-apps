@@ -1,16 +1,12 @@
-FROM ubuntu:16.04
+FROM python:3
 
-RUN apt-get update -y && \
-    apt-get install -y python-pip python-dev
+WORKDIR /usr/src/app
 
-COPY ./requirments.txt /app/requirments.txt
+COPY requirments.txt ./
+RUN pip install --no-cache-dir -r requirments.txt
 
-WORKDIR /app
+COPY . .
 
-RUN pip install -r requirments.txt
+EXPOSE 8080
 
-COPY . /app
-
-ENTRYPOINT [ "python" ]
-
-CMD [ "app.py" ]
+CMD ["python", "app.py" ]
