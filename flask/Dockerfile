@@ -1,14 +1,16 @@
-FROM python:3.6-slim
+FROM ubuntu:16.04
 
+RUN apt-get update -y && \
+    apt-get install -y python-pip python-dev
 
-RUN mkdir /app
+COPY ./requirments.txt /app/requirements.txt
+
 WORKDIR /app
 
-COPY . .
-WORKDIR /app
-RUN pip install -r requirments.txt
+RUN pip install -r requirements.txt
 
-EXPOSE 8080
+COPY . /app
 
-ENTRYPOINT ["python"]
-CMD ["app.py"]
+ENTRYPOINT [ "python" ]
+
+CMD [ "app.py" ]
