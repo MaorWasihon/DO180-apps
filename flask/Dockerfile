@@ -7,7 +7,7 @@ RUN pip install --no-cache-dir -r requirments.txt
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 80
 
 COPY templates/index.html /var/www/html/index.html
 CMD ["python", "app.py" ]
